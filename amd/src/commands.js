@@ -1,5 +1,5 @@
 import { getString } from "core/str";
-import { component, teacherAideButtonName, icon } from "./common";
+import { component, teacherAideMenuItemName, icon } from "./common";
 
 export const getSetup = async () => {
   const [buttonTooltip] = await Promise.all([
@@ -7,17 +7,7 @@ export const getSetup = async () => {
   ]);
 
   return (editor) => {
-    // Register the Menu Button as a toggle.
-    editor.ui.registry.addButton(teacherAideButtonName, {
-      icon,
-      tooltip: buttonTooltip,
-      onAction: () => {
-        // eslint-disable-next-line no-console
-        console.log("Teacher Aide Button Clicked");
-      },
-    });
-
-    editor.ui.registry.addMenuItem(teacherAideButtonName, {
+    editor.ui.registry.addMenuItem(teacherAideMenuItemName, {
       icon,
       text: buttonTooltip,
       onAction: () => {
