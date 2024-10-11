@@ -1,9 +1,6 @@
-const component = 'tiny_teacheraide';
-
 export default {
-    component,
-    pluginName: `${component}/plugin`,
-    icon: component,
-    startdemoButtonName: `${component}_startdemo`,
-    startdemoMenuItemName: `${component}_startdemo`,
+  pluginName: "tiny_teacheraide/plugin",
+  component: "tiny_teacheraide",
+  accessbilityButtonName: "tiny_teacheraide",
+  icon: "teacher-aide",
 };

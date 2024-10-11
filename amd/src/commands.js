@@ -1,41 +1,29 @@
-import {getButtonImage} from "editor_tiny/utils";
-import {get_string as getString} from "core/str";
-import {
-  component,
-  startdemoButtonName,
-  startdemoMenuItemName,
-  icon,
-} from "./common";
+import { getString } from "core/str";
+import { component, teacherAideButtonName, icon } from "./common";
 
-const handleAction = (editor) => {
-  window.console.log(editor);
-};
-
-export const getSetup = async() => {
-  const [startdemoButtonNameTitle, startdemoMenuItemNameTitle, buttonImage] =
-    await Promise.all([
-      getString("button_startdemo", component),
-      getString("menuitem_startdemo", component),
-      getButtonImage("icon", component),
-    ]);
+export const getSetup = async () => {
+  const [buttonTooltip] = await Promise.all([
+    getString("pluginname", component),
+  ]);
 
   return (editor) => {
-    // Register the Moodle SVG as an icon suitable for use as a TinyMCE toolbar button.
-    editor.ui.registry.addIcon(icon, buttonImage.html);
-
-    // Register the startdemo Toolbar Button.
-    editor.ui.registry.addButton(startdemoButtonName, {
+    // Register the Menu Button as a toggle.
+    editor.ui.registry.addButton(teacherAideButtonName, {
       icon,
-      tooltip: startdemoButtonNameTitle,
-      onAction: () => handleAction(editor),
+      tooltip: buttonTooltip,
+      onAction: () => {
+        // eslint-disable-next-line no-console
+        console.log("Teacher Aide Button Clicked");
+      },
     });
 
-    // Add the startdemo Menu Item.
-    // This allows it to be added to a standard menu, or a context menu.
-    editor.ui.registry.addMenuItem(startdemoMenuItemName, {
+    editor.ui.registry.addMenuItem(teacherAideButtonName, {
       icon,
-      text: startdemoMenuItemNameTitle,
-      onAction: () => handleAction(editor),
+      text: buttonTooltip,
+      onAction: () => {
+        // eslint-disable-next-line no-console
+        console.log("Teacher Aide Button Clicked");
+      },
     });
   };
 };

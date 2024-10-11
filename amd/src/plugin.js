@@ -1,30 +1,23 @@
-import {getTinyMCE} from 'editor_tiny/loader';
-import {getPluginMetadata} from 'editor_tiny/utils';
+import { getTinyMCE } from "editor_tiny/loader";
+import { getPluginMetadata } from "editor_tiny/utils";
 
-import {component, pluginName} from './common';
-import {register as registerOptions} from './options';
-import {getSetup as getCommandSetup} from './commands';
-import * as Configuration from './configuration';
+import { component, pluginName } from "./common";
+import * as Configuration from "./configuration";
+import * as Commands from "./commands";
 
 // eslint-disable-next-line no-async-promise-executor
-export default new Promise(async(resolve) => {
-    const [
-        tinyMCE,
-        pluginMetadata,
-        setupCommands,
-    ] = await Promise.all([
-        getTinyMCE(),
-        getPluginMetadata(component, pluginName),
-        getCommandSetup(),
-    ]);
+export default new Promise(async (resolve) => {
+  const [tinyMCE, pluginMetadata, setupCommands] = await Promise.all([
+    getTinyMCE(),
+    getPluginMetadata(component, pluginName),
+    Commands.getSetup(),
+  ]);
 
-    tinyMCE.PluginManager.add(pluginName, (editor) => {
-        registerOptions(editor);
+  tinyMCE.PluginManager.add(pluginName, (editor) => {
+    setupCommands(editor);
 
-        setupCommands(editor);
+    return pluginMetadata;
+  });
 
-        return pluginMetadata;
-    });
-
-    resolve([pluginName, Configuration]);
+  resolve([pluginName, Configuration]);
 });

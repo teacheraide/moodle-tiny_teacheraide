@@ -1,35 +1,9 @@
-
-import {
-    startdemoButtonName,
-    startdemoMenuItemName,
-} from './common';
-
-import {
-    addMenubarItem,
-    addToolbarButtons,
-} from 'editor_tiny/utils';
-
-const getToolbarConfiguration = (instanceConfig) => {
-    let toolbar = instanceConfig.toolbar;
-    toolbar = addToolbarButtons(toolbar, 'content', [
-        startdemoButtonName,
-    ]);
-
-    return toolbar;
-};
-
-const getMenuConfiguration = (instanceConfig) => {
-    let menu = instanceConfig.menu;
-    menu = addMenubarItem(menu, 'file', [
-        startdemoMenuItemName,
-    ].join(' '));
-
-    return menu;
-};
+import { teacherAideButtonName } from "./common";
+import { addMenubarItem } from "editor_tiny/utils";
 
 export const configure = (instanceConfig) => {
-    return {
-        toolbar: getToolbarConfiguration(instanceConfig),
-        menu: getMenuConfiguration(instanceConfig),
-    };
+  // Update the instance configuration to add the Tools menu.
+  return {
+    menu: addMenubarItem(instanceConfig.menu, "tools", teacherAideButtonName),
+  };
 };
