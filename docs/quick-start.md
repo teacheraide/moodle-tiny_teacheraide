@@ -62,7 +62,16 @@ bin/moodle-docker-compose up -d
 
 git clone git@github.com:teacheraide/moodle-local_teacheraide.git "$MOODLE_DOCKER_WWWROOT/local/teacheraide"
 git clone git@github.com:teacheraide/moodle-tiny_teacheraide.git "$MOODLE_DOCKER_WWWROOT/lib/editor/tiny/plugins/teacheraide"
+
 bin/moodle-docker-compose exec webserver php admin/cli/upgrade.php
+
+cd $MOODLE_DOCKER_WWWROOT/local/teacheraide/vue
+npm i
+npm run build
+cd $MOODLE_DOCKER_WWWROOT/local/teacheraide
+npm i
+npm run build
+
 ```
 
 go to http://localhost:8000 to complete setup
