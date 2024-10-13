@@ -1,3 +1,3 @@
 <?php
 
-$string['pluginname'] = 'TeacherAide';
+$string['pluginname'] = 'TeacherAide TinyMCE Plugin';
