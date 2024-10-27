@@ -17,8 +17,8 @@
 /**
  * Tiny Link plugin.
  *
- * @package    tiny_link
- * @copyright  2022 Huong Nguyen <huongnv13@gmail.com>
+ * @package    tiny_teacheraide
+ * @copyright  2024 teacheraide
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
