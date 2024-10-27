@@ -17,8 +17,8 @@
 /**
  * Privacy Subsystem implementation for the Link plugin for TinyMCE.
  *
- * @package    tiny_link
- * @copyright  2022 Huong Nguyen <huongnv13@gmail.com>
+ * @package    tiny_teacheraide
+ * @copyright  2024 teacheraide
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -27,8 +27,8 @@ namespace tiny_teacheraide\privacy;
 /**
  * Privacy Subsystem implementation for the Link plugin for TinyMCE.
  *
- * @package    tiny_link
- * @copyright  2023 Huong Nguyen <huongnv13@gmail.com>
+ * @package    tiny_teacheraide
+ * @copyright  2024 teacheraide
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class provider implements \core_privacy\local\metadata\null_provider
