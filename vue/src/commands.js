@@ -8,7 +8,7 @@ import { component, teacherAideMenuItemName, icon } from "./common";
 export const getSetup = async () => {
   const modal = await ModalFactory.create({
     id: "chat-modal",
-    body: '<teacheraide-simple-chat id="teacheraide-modal-chatbox"/>',
+    body: '<teacheraide-simple-chat id="teacheraide-modal-chatbox" class="teacheraide-simple-chat"/>',
   });
   
 
@@ -28,7 +28,7 @@ export const getSetup = async () => {
         //const modalBody = button.closest('.modal-body');
 
         let iframeTargetId = '';
-        const modalContent = button.closest('[data-fieldtype="editor"]');
+        let modalContent = button.closest('[data-fieldtype="editor"]')||button.closest('.form-textarea');
 
         if(modalContent!=undefined){
 
@@ -42,6 +42,7 @@ export const getSetup = async () => {
           iframeTargetId = iframe.id;
 
         }
+        
         //const modalChat = document.getElementById("modal-teacheraide-chat");
         //if(modalChat==undefined){
         //  const newElement = document.createElement('teacheraide-simple-chat');
